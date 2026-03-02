@@ -19,13 +19,14 @@
 
 # Depending on the location of your Docker container
 # you need to change the path to the specific Docker registry.
-# Test trigger
 #
 name: "Trivy Security Scan"
 
 on:
   push:
-    branches: [main, feature/IN-181-enable-trivy-scanner]
+    branches: [main]
+  pull_request:
+    branches: [main]
   schedule:
     # Once a day
     - cron: "0 0 * * *"
