@@ -102,7 +102,7 @@ public class IssuerBusinessLogicTests
             EncryptionConfigs = Enumerable.Repeat(new EncryptionModeConfig
             {
                 Index = 0,
-                CipherMode = CipherMode.ECB,
+                CipherMode = CipherMode.CBC,
                 PaddingMode = PaddingMode.PKCS7,
                 EncryptionKey = "zlWxjv54PrNDbjYx7d3m4nz88qmCHG0AhYwu0UYSFGTo9psPbcVsNiqr14zhRgSd"
             }, 1),

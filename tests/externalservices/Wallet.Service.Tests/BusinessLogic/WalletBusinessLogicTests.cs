@@ -40,7 +40,7 @@ public class WalletBusinessLogicTests
         _encryptionModeConfig = new EncryptionModeConfig
         {
             Index = 0,
-            CipherMode = CipherMode.ECB,
+            CipherMode = CipherMode.CBC,
             PaddingMode = PaddingMode.PKCS7,
             EncryptionKey = "202048656c6c6f20202048656c6c6f20202048656c6c6f20202048656c6c6f20"
         };
