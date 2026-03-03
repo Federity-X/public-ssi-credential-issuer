@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Run Trivy vulnerability scanner in repo mode
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@0.32.0
         with:
           scan-type: "config"
           hide-progress: false
@@ -60,6 +60,7 @@ jobs:
           severity: "CRITICAL,HIGH" # While vulnerabilities of all severities are reported in the SARIF output, the exit code and workflow failure are triggered only by these specified severities (CRITICAL or HIGH).
           exit-code: "1" # Trivy exits with code 1 if vulnerabilities are found, causing the workflow step to fail.
           limit-severities-for-sarif: true
+          version: "v0.69.2"
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v4
@@ -92,7 +93,7 @@ jobs:
 
       - name: Run Trivy vulnerability scanner
         if: always()
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@0.32.0
         with:
           image-ref: "${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE }}/ssi-credential-issuer-service:${{ github.sha }}"
           format: "sarif"
@@ -102,6 +103,7 @@ jobs:
           hide-progress: false
           exit-code: "1" # Trivy exits with code 1 if vulnerabilities are found, causing the workflow step to fail.
           limit-severities-for-sarif: true
+          version: "v0.69.2"
 
       - name: Upload Trivy scan results to GitHub Security tab
         if: always()
@@ -134,7 +136,7 @@ jobs:
 
       - name: Run Trivy vulnerability scanner
         if: always()
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@0.32.0
         with:
           image-ref: "${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE }}/ssi-credential-issuer-migrations:${{ github.sha }}"
           format: "sarif"
@@ -144,6 +146,7 @@ jobs:
           hide-progress: false
           exit-code: "1" # Trivy exits with code 1 if vulnerabilities are found, causing the workflow step to fail.
           limit-severities-for-sarif: true
+          version: "v0.69.2"
 
       - name: Upload Trivy scan results to GitHub Security tab
         if: always()
@@ -176,7 +179,7 @@ jobs:
 
       - name: Run Trivy vulnerability scanner
         if: always()
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@0.32.0
         with:
           image-ref: "${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE }}/ssi-credential-expiry-app:${{ github.sha }}"
           format: "sarif"
@@ -186,6 +189,7 @@ jobs:
           hide-progress: false
           exit-code: "1" # Trivy exits with code 1 if vulnerabilities are found, causing the workflow step to fail.
           limit-severities-for-sarif: true
+          version: "v0.69.2"
 
       - name: Upload Trivy scan results to GitHub Security tab
         if: always()
@@ -218,7 +222,7 @@ jobs:
 
       - name: Run Trivy vulnerability scanner
         if: always()
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@0.32.0
         with:
           image-ref: "${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE }}/ssi-credential-issuer-processes-worker:${{ github.sha }}"
           format: "sarif"
@@ -228,6 +232,7 @@ jobs:
           hide-progress: false
           exit-code: "1" # Trivy exits with code 1 if vulnerabilities are found, causing the workflow step to fail.
           limit-severities-for-sarif: true
+          version: "v0.69.2"
 
       - name: Upload Trivy scan results to GitHub Security tab
         if: always()
